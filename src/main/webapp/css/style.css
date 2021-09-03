@@ -44,6 +44,33 @@ body { background: grey; }
 	text-align: left;
 }
 
+#section table.scrollTable {
+	table-layout: fixed;
+}
+#section table.scrollTable thead {
+	background: green;
+	display: block;
+}
+#section table.scrollTable tbody {
+	display: block;
+	height: 350px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#section table.scrollTable thead th, #section table.scrollTable tbody td {
+	width: 90px;
+} 
+
+#section table.scrollTable tbody tr:nth-child(2n-1) td {
+	background: yellow;
+}
+#section table.scrollTable tbody tr:nth-child(2n) td {
+	background: red;
+}
+#section table.scrollTable tbody tr td:first-child {
+	background: blue;
+}
+
 #footer {
 	width: 100%;
 	height: 30px;

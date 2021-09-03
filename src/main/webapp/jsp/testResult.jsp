@@ -71,7 +71,7 @@
 	<section id="section">
 		<h2>검사결과입력</h2>
 		
-		<form action="testResultInsert.jsp" name="tData" method="post" onsubmit="return chkVal()">
+		<form action="testResultInput.jsp" name="tData" method="post" onsubmit="return chkVal()">
 			<table class="inputTable">
 				<tr>
 					<th>환자번호</th>
