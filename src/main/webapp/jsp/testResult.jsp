@@ -54,6 +54,7 @@
 			alert("검사결과가 선택되지 않았습니다!");
 			return false;
 		}
+		
 	}
 	
 	function re() {
@@ -67,6 +68,9 @@
 	}
 	function marking1() {
 		var hidden = document.getElementsByClassName("hidden");
+		for(var i=0; i<hidden.length; i++) {
+			hidden[i].style.display = "none";
+		}
 		hidden[0].style.display = "inline-block";
 		hidden[1].style.display = "inline-block";
 		hidden[0].checked = true;
@@ -75,8 +79,14 @@
 	function marking2() {
 		var hidden = document.getElementsByClassName("hidden");
 		hidden[0].checked = false; 
-		hidden[0].style.display = "none";
-		hidden[1].style.display = "none";
+		for(var i=0; i<hidden.length; i++) {
+			if(i<2) {
+				hidden[i].style.display = "none";				
+			} else {
+				hidden[i].style.display = "inline-block";
+			}
+			
+		}
 	}
 	
 	function marking3() {
@@ -132,8 +142,8 @@
 				<tr>
 					<th>검사상태</th>
 					<td>
-						<input type="radio" name="t_status" value="1" onclick="return marking1()">검사중
-						<input type="radio" name="t_status" value="2" onclick="return marking2()">검사완료
+						<input type="radio" name="t_status" value="1" onclick="marking1()">검사중
+						<input type="radio" name="t_status" value="2" onclick="marking2()">검사완료
 					</td>
 				</tr>
 				<tr>
@@ -147,18 +157,18 @@
 					<th>검사결과</th>
 					<td>
 						<input type="radio" name="t_result" value="X" class="hidden"><span class="hidden">미입력</span>
-						<input type="radio" name="t_result" value="P" onclick="return marking3()">현금
-						<input type="radio" name="t_result" value="N" onclick="return marking4()">카드
+						<input type="radio" name="t_result" value="P" class="hidden" onclick="marking3()"><span class="hidden">양성</span>
+						<input type="radio" name="t_result" value="N" class="hidden" onclick="marking4()"><span class="hidden">음성</span>
 					</td>
 				</tr>
 				<tr class="row_hidden">
 					<td colspan="2">
-						<span>현금결제</span>
+						<span>양성을 누르셨습니다. 최종확인 후 등록하십시오.</span>
 					</td>
 				</tr>
 				<tr class="row_hidden">
 					<td colspan="2">
-						<span>카드결제</span>
+						<span>음성을 누르셨습니다. 최종확인 후 등록하십시오.</span>
 					</td>
 				</tr>
 				<tr>
