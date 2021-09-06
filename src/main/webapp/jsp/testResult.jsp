@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/style.css?ver=1">
+<link rel="stylesheet" href="../css/style.css?ver=5">
 <script type="text/javascript">
 
 	function chkVal() {
@@ -57,9 +57,36 @@
 	}
 	
 	function re() {
+		var hidden = document.getElementsByClassName("hidden");
 		alert("정보를 지우고 처음부터 다시 입력 합니다!");
 		document.tData.reset();
 		document.tData.p_no.focus();
+		hidden[0].style.display = "inline-block";
+		hidden[1].style.display = "inline-block";
+		document.getElementsByClassName("toggle")[0].style.display = "none";
+	}
+	function marking1() {
+		var hidden = document.getElementsByClassName("hidden");
+		hidden[0].style.display = "inline-block";
+		hidden[1].style.display = "inline-block";
+		hidden[0].checked = true;
+	}
+	
+	function marking2() {
+		var hidden = document.getElementsByClassName("hidden");
+		hidden[0].checked = false; 
+		hidden[0].style.display = "none";
+		hidden[1].style.display = "none";
+	}
+	
+	function marking3() {
+		document.getElementsByClassName("row_hidden")[1].style.display="none";
+		document.getElementsByClassName("row_hidden")[0].style.display="table-row";
+	}
+	
+	function marking4() {
+		document.getElementsByClassName("row_hidden")[0].style.display="none";
+		document.getElementsByClassName("row_hidden")[1].style.display="table-row";
 	}
 
 </script>
@@ -105,8 +132,8 @@
 				<tr>
 					<th>검사상태</th>
 					<td>
-						<input type="radio" name="t_status" value="1">검사중
-						<input type="radio" name="t_status" value="2">검사완료
+						<input type="radio" name="t_status" value="1" onclick="return marking1()">검사중
+						<input type="radio" name="t_status" value="2" onclick="return marking2()">검사완료
 					</td>
 				</tr>
 				<tr>
@@ -119,9 +146,19 @@
 				<tr>
 					<th>검사결과</th>
 					<td>
-						<input type="radio" name="t_result" value="X">미입력
-						<input type="radio" name="t_result" value="P">양성
-						<input type="radio" name="t_result" value="N">음성
+						<input type="radio" name="t_result" value="X" class="hidden"><span class="hidden">미입력</span>
+						<input type="radio" name="t_result" value="P" onclick="return marking3()">현금
+						<input type="radio" name="t_result" value="N" onclick="return marking4()">카드
+					</td>
+				</tr>
+				<tr class="row_hidden">
+					<td colspan="2">
+						<span>현금결제</span>
+					</td>
+				</tr>
+				<tr class="row_hidden">
+					<td colspan="2">
+						<span>카드결제</span>
 					</td>
 				</tr>
 				<tr>

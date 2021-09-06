@@ -70,6 +70,9 @@ body { background: grey; }
 #section table.scrollTable tbody tr td:first-child {
 	background: blue;
 }
+#section table tr.row_hidden {
+	display: none;
+}
 
 #footer {
 	width: 100%;
