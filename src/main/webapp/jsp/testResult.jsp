@@ -20,7 +20,7 @@
 <script type="text/javascript">
 
 	function chkVal() {
-		
+
 		var test = document.tData;
 		var status = document.getElementsByName("t_status");
 		var result = document.getElementsByName("t_result");
@@ -54,7 +54,6 @@
 			alert("검사결과가 선택되지 않았습니다!");
 			return false;
 		}
-		
 	}
 	
 	function re() {
