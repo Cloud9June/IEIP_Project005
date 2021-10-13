@@ -25,7 +25,6 @@
 		var status = document.getElementsByName("t_status");
 		var result = document.getElementsByName("t_result");
 		
-		
 		if(!test.p_no.value) {
 			alert("환자번호가 입력되지 않았습니다!");
 			test.p_no.focus();
@@ -65,6 +64,7 @@
 		hidden[1].style.display = "inline-block";
 		document.getElementsByClassName("toggle")[0].style.display = "none";
 	}
+	
 	function marking1() {
 		var hidden = document.getElementsByClassName("hidden");
 		for(var i=0; i<hidden.length; i++) {
@@ -84,7 +84,6 @@
 			} else {
 				hidden[i].style.display = "inline-block";
 			}
-			
 		}
 	}
 	
